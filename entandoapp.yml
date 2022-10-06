@@ -1,0 +1,11 @@
+apiVersion: entando.org/v1
+kind: EntandoApp
+metadata:
+  namespace: entando
+  name: quickstart
+spec:
+  environmentVariables: []
+  dbms: embedded
+  ingressHostName: quickstart.entando.net
+  standardServerImage: eap
+  replicas: 1
