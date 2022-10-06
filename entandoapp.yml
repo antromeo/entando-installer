@@ -6,6 +6,6 @@ metadata:
 spec:
   environmentVariables: []
   dbms: embedded
-  ingressHostName: quickstart.entando.net
+  ingressHostName: quickstart.$IP.nip.io
   standardServerImage: eap
   replicas: 1
