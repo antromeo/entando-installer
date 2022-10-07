@@ -25,7 +25,6 @@ sed -i "s|\$IP|$ip|" ./temp/entandoapp.yml
 kubectl delete namespace entando
 kubectl create namespace entando
 kubectl apply -f ./temp/cluster-resources.yaml
-kubectl apply -f ./temp/entando-operator-config.yaml -n entando
 kubectl apply -f ./temp/namespace-resources.yaml -n entando
 kubectl apply -f ./temp/entandoapp.yml -n entando
 
