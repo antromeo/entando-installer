@@ -19,6 +19,7 @@ multipass exec $instancename -- sudo kubectl config view --raw | sed -e "s|127.0
 mkdir -p temp
 wget -P ./temp "https://raw.githubusercontent.com/entando/entando-releases/$version/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml" 
 wget -P ./temp "https://raw.githubusercontent.com/entando/entando-releases/$version/dist/ge-1-1-6/namespace-scoped-deployment/namespace-resources.yaml"
+wget -P ./temp "https://raw.githubusercontent.com/entando/entando-releases/$version/dist/ge-1-1-6/samples/entando-operator-config.yaml"
 wget -P ./temp "https://raw.githubusercontent.com/antromeo/entando-installer/main/entandoapp.yml"
 sed -i "s|\$IP|$ip|" ./temp/entandoapp.yml
 
@@ -26,6 +27,6 @@ kubectl delete namespace entando
 kubectl create namespace entando
 kubectl apply -f ./temp/cluster-resources.yaml
 kubectl apply -f ./temp/namespace-resources.yaml -n entando
-kubectl apply -f ./temp/entandoapp.yml -n entando
+kubectl apply -f ./temp/entando-operator-config.yaml -n entando
 
 [ -d temp ] && rm -r temp

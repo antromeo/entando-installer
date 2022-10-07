@@ -4,7 +4,9 @@ metadata:
   namespace: entando
   name: quickstart
 spec:
-  environmentVariables: []
+  environmentVariables:
+  - name: SPRING_PROFILES_ACTIVE
+    value: "default,swagger"
   dbms: embedded
   ingressHostName: quickstart.$IP.nip.io
   standardServerImage: eap
