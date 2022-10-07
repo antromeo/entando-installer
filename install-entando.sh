@@ -14,7 +14,7 @@ version="${version:=$lasttag}"
 echo "select version: $version"
 
 ip=$(multipass list | grep -i "$instancename" | awk '{print $3}')
-multipass exec entando -- sudo kubectl config view --raw | sed -e "s|127.0.0.1|$ip|"  > ~/.kube/config
+multipass exec $instancename -- sudo kubectl config view --raw | sed -e "s|127.0.0.1|$ip|"  > ~/.kube/config
 
 mkdir -p temp
 wget -P ./temp "https://raw.githubusercontent.com/entando/entando-releases/$version/dist/ge-1-1-6/namespace-scoped-deployment/cluster-resources.yaml" 
