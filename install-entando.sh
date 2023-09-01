@@ -13,7 +13,7 @@ read -p "Enter version: (default: $lasttag)" version
 version="${version:=$lasttag}"
 echo "select version: $version"
 
-ip=$(multipass list | grep -i "$instancename" | awk '{print $3}')
+ip=$(multipass list | grep -i "$instancename" | awk '{print $3}' | head -n 1)
 multipass exec $instancename -- sudo kubectl config view --raw | sed -e "s|127.0.0.1|$ip|"  > ~/.kube/config
 
 mkdir -p temp
