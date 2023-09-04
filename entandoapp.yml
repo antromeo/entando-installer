@@ -7,7 +7,7 @@ spec:
   environmentVariables:
   - name: SPRING_PROFILES_ACTIVE
     value: "default,swagger"
-  dbms: embedded
+  dbms: postgresql
   ingressHostName: quickstart.$IP.nip.io
   standardServerImage: tomcat
   replicas: 1
